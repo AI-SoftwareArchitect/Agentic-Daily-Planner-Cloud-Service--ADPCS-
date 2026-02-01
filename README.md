@@ -1,8 +1,8 @@
 # Sentient Planner - Emotion to Daily Routine Planner
 
-> 🧠 An AI-powered backend that transforms raw, unstructured thoughts into structured weekly plans with ASCII art visualization of emotional states.
+>  An AI-powered backend that transforms raw, unstructured thoughts into structured weekly plans with ASCII art visualization of emotional states.
 
-## 🌟 Overview
+## Overview
 
 Sentient Planner analyzes your text input using **Gemini 2.5 Flash** to:
 1. **Detect your emotional state** - Understand the underlying sentiment
@@ -32,7 +32,7 @@ DEEP LEARNING MODEL
 └─────────────────────────────────────────────────────────────┘
 ```
 
-## 🏗️ Architecture
+##  Architecture
 
 This project uses **LocalStack** to simulate AWS services locally:
 
@@ -47,7 +47,7 @@ This project uses **LocalStack** to simulate AWS services locally:
 | Secrets Manager | LocalStack SM | API keys & JWT secret |
 | EC2 | Docker Container | ASCII generation worker |
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Emotion-to-daily-routine-planner/
@@ -78,7 +78,7 @@ Emotion-to-daily-routine-planner/
 └── .env.example
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -198,7 +198,7 @@ Retrieve generated plans for a user.
 }
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run infrastructure tests:
 
@@ -206,14 +206,14 @@ Run infrastructure tests:
 python scripts/test_infrastructure.py
 ```
 
-## 🔐 Circuit Breaker Pattern
+##  Circuit Breaker Pattern
 
 The system implements graceful degradation:
 - If the ASCII Worker fails, users still receive their weekly plan
 - Plans are returned with `"ascii.status": "pending"` until visualization is ready
 - The system never blocks plan delivery due to visual generation delays
 
-## 🎨 ASCII Art Emotions
+##  ASCII Art Emotions
 
 The worker generates ASCII art based on detected emotions:
 
@@ -244,11 +244,11 @@ docker-compose logs -f localstack
 docker-compose logs -f sentiment-worker
 ```
 
-## 📄 License
+## License
 
 MIT License - see LICENSE file for details.
 
 ---
 
-Built with ❤️ using Gemini AI, PyTorch, and LocalStack
+
 
