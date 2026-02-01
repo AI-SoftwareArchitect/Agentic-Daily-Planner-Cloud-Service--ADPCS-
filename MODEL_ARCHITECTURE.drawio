@@ -1,0 +1,49 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.6 Chrome/140.0.7339.249 Electron/38.8.0 Safari/537.36" version="29.3.6">
+  <diagram name="Sayfa -1" id="K2b9VFi2DGc7WZ6B-4wT">
+    <mxGraphModel dx="387" dy="693" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-4" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="Transfer learning model" vertex="1">
+          <mxGeometry height="70" width="190" x="328" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-6" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-3" parent="1" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" value="last layers (trainable)" vertex="1">
+          <mxGeometry height="45" width="137" x="354.5" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-10" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-9" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-5" parent="1" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="GeLU" vertex="1">
+          <mxGeometry height="40" width="120" x="363" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-12" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-11" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-9" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" value="MultiheadAttention" vertex="1">
+          <mxGeometry height="80" width="197" x="324.5" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-14" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-16" edge="1" parent="1" source="O5bklaCYFwfMdFJ9qKj7-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="O5bklaCYFwfMdFJ9qKj7-15" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-11" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" value="BatchNormalizing" vertex="1">
+          <mxGeometry height="60" width="147" x="349.5" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-13" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" value="EN" vertex="1">
+          <mxGeometry height="60" width="120" x="243" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="O5bklaCYFwfMdFJ9qKj7-15" parent="1" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" value="ASCII INDEX" vertex="1">
+          <mxGeometry height="60" width="120" x="491.5" y="700" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
