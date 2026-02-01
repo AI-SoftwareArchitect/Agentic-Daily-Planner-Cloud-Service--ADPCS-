@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"           # LocalStack Gateway
+      - "4510-4559:4510-4559" # External services port range
+    environment:
+      - DEBUG=1
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - SERVICES=s3,dynamodb,kinesis,sqs,secretsmanager,lambda,apigateway
+      - DEFAULT_REGION=us-east-1
+      - LAMBDA_EXECUTOR=docker
+      - LAMBDA_DOCKER_NETWORK=localstack_network
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./localstack-data:/tmp/localstack"
+    networks:
+      - localstack_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sentiment-worker:
+    build:
+      context: ./src/worker
+      dockerfile: Dockerfile
+    container_name: sentiment-worker
+    depends_on:
+      localstack:
+        condition: service_healthy
+    environment:
+      - IS_LOCAL=true
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+      - LOCALSTACK_ENDPOINT=http://localstack:4566
+      - SQS_QUEUE_URL=http://localstack:4566/000000000000/ascii-gen-queue
+      - S3_BUCKET_NAME=sentient-planner-bucket
+      - DYNAMODB_TABLE_NAME=sentient-planner-table
+    networks:
+      - localstack_network
+    restart: unless-stopped
+
+networks:
+  localstack_network:
+    driver: bridge

@@ -1,0 +1,154 @@
+{
+    "info": {
+        "name": "Sentient Planner API",
+        "description": "LocalStack API Gateway for Sentient Planner",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:4566/restapis/{{api_id}}/dev/_user_request_"
+        },
+        {
+            "key": "api_id",
+            "value": "i83jhjhpbl"
+        },
+        {
+            "key": "jwt_token",
+            "value": "YOUR_JWT_TOKEN_HERE"
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{jwt_token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:4566/_localstack/health",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4566",
+                    "path": [
+                        "_localstack",
+                        "health"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "POST /analyze - Submit Text",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"text\": \"I am feeling stressed about work but excited about my new project\",\n  \"userId\": \"user1\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/analyze",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "analyze"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "GET /plan/{userId} - Get Plans",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/plan/user1",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "plan",
+                        "user1"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Direct Lambda Invoke - Auth",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"authorizationToken\": \"Bearer {{jwt_token}}\",\n  \"methodArn\": \"arn:aws:execute-api:us-east-1:000000000000:{{api_id}}/dev/POST/analyze\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:4566/2015-03-31/functions/sentient_planner_auth/invocations",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4566",
+                    "path": [
+                        "2015-03-31",
+                        "functions",
+                        "sentient_planner_auth",
+                        "invocations"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Direct Lambda Invoke - Processor",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"Records\": [\n    {\n      \"kinesis\": {\n        \"data\": \"eyJ0ZXh0IjoiSSBhbSBmZWVsaW5nIGhhcHB5IHRvZGF5ISIsInVzZXJJZCI6InVzZXIxIn0=\",\n        \"sequenceNumber\": \"123\",\n        \"partitionKey\": \"user1\"\n      },\n      \"eventSource\": \"aws:kinesis\"\n    }\n  ]\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:4566/2015-03-31/functions/sentient_planner_processor/invocations",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "4566",
+                    "path": [
+                        "2015-03-31",
+                        "functions",
+                        "sentient_planner_processor",
+                        "invocations"
+                    ]
+                }
+            }
+        }
+    ]
+}
