@@ -9,6 +9,13 @@ Sentient Planner analyzes your text input using **Gemini 2.5 Flash** to:
 2. **Generate a weekly plan** - Create a tailored, pragmatic schedule
 3. **Visualize the emotion** - Convert feelings into ASCII art using PyTorch
 
+CLOUD ARCHITECTURE
+![CLOUD_ARCHITECTURE](ARCHITECTURE.png)
+
+
+DEEP LEARNING MODEL
+![MODEL](MODEL.png)
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    SENTIENT PLANNER                          │
@@ -244,3 +251,4 @@ MIT License - see LICENSE file for details.
 ---
 
 Built with ❤️ using Gemini AI, PyTorch, and LocalStack
+
